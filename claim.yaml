@@ -1,0 +1,69 @@
+apiVersion: templates.krateo.io/v1alpha1
+kind: AwsStack
+metadata:
+  name: 62b0853d44f0d6b074c7f79d-awsstack
+spec:
+  dashboard:
+    description: test-1
+    icon: fa-brands fa-aws
+    links:
+    - icon: fa-brands fa-git
+      title: krateoplatformops/test-1
+      url: https://github.com/krateoplatformops/test-1
+    - icon: fa-brands fa-aws
+      title: AWS Console
+      url: https://kiratech.awsapps.com/start#/
+    owner: guest
+    plugins:
+    - endpointName: argocd
+      icon: fa-solid fa-cookie
+      name: resources
+      type: argocd
+      value: 62b0853d44f0d6b074c7f79d-awsstack
+    - endpointName: github.com
+      icon: fa-solid fa-book-skull
+      name: documentation
+      type: doc
+      values:
+      - README.md
+    - icon: fa-brands fa-docker
+      name: kubernetes
+      type: kubernetes
+      value: deploymentId=62b0853d44f0d6b074c7f79d
+    tags:
+    - aws
+    - stack
+    - infrastructure
+    - rds
+  deploymentId: 62b0853d44f0d6b074c7f79d
+  eks:
+    clusterName: test-1
+  fromRepo:
+    apiUrl: https://api.github.com/
+    domain: github.com
+    organizationName: krateoplatformops
+    provider: github
+    repositoryName: krateo-template-awsstack
+    schema: https
+  name: test-1
+  network:
+    networkName: test-1
+  nodeGroup:
+    scalingConfig:
+      desiredSize: 3
+      maxSize: 3
+      minSize: 3
+  rds:
+    allocatedStorage: 10
+    dbInstanceClass: db.t3.micro
+    engineVersion: "13.4"
+    name: test-1
+    region: eu-central-1
+    storageType: standard
+  toRepo:
+    apiUrl: https://api.github.com
+    domain: github.com
+    organizationName: krateoplatformops
+    provider: github.com
+    repositoryName: test-1
+    schema: https
